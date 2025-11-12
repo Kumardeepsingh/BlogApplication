@@ -52,7 +52,7 @@ backend/*.log
 backend/logs/
 
 # IDE files
-.idea/
+.idea
 backend/.project
 backend/.classpath
 backend/.settings/
