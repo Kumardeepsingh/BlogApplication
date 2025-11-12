@@ -46,14 +46,13 @@ backend/out/
 backend/.env
 backend/application-*.yml
 backend/application-*.properties
-!backend/src/main/resources/application.properties  # keep default one if needed
 
 # Logs
 backend/*.log
 backend/logs/
 
 # IDE files
-backend/.idea/
+.idea/
 backend/.project
 backend/.classpath
 backend/.settings/
