@@ -1,0 +1,60 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# ==========================
+# 🎨 React Frontend
+# ==========================
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/coverage/
+frontend/.cache/
+frontend/.parcel-cache/
+frontend/.eslintcache
+frontend/.stylelintcache
+
+# Environment files
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Logs and lock files
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+frontend/package-lock.json
+frontend/yarn.lock
+
+# System files
+frontend/.DS_Store
+
+# ==========================
+# ☕ Spring Boot Backend
+# ==========================
+backend/target/
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+backend/.gradle/
+backend/build/
+backend/out/
+
+# Environment and config
+backend/.env
+backend/application-*.yml
+backend/application-*.properties
+!backend/src/main/resources/application.properties  # keep default one if needed
+
+# Logs
+backend/*.log
+backend/logs/
+
+# IDE files
+backend/.idea/
+backend/.project
+backend/.classpath
+backend/.settings/
+backend/.factorypath
