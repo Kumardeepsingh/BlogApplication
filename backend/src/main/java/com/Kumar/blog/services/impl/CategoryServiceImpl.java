@@ -3,6 +3,7 @@ package com.Kumar.blog.services.impl;
 import com.Kumar.blog.domain.entities.Category;
 import com.Kumar.blog.repositories.CategoryRepository;
 import com.Kumar.blog.services.CategoryService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,16 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<Category> listCategories() {
         return categoryRepository.findAllWithPostCount();
+    }
+
+    @Override
+    @Transactional
+    public Category createCategory(Category category) {
+
+        String categoryName = category.getName();
+        if(categoryRepository.existsByNameIgnoreCase(categoryName)){
+            throw new IllegalArgumentException("Category already exists with name: " + categoryName);
+        }
+        return categoryRepository.save(category);
     }
 }
