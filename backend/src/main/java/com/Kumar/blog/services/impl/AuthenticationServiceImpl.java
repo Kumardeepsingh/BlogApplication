@@ -23,7 +23,7 @@ import java.util.Map;
 public class AuthenticationServiceImpl implements AuthenticationService {
 
     private final AuthenticationManager authenticationManager;
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     @Value("${jwt.secret}")
     private String secretKey;
