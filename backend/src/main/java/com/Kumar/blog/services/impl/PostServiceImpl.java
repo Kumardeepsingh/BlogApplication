@@ -4,6 +4,7 @@ import com.Kumar.blog.domain.PostStatus;
 import com.Kumar.blog.domain.entities.Category;
 import com.Kumar.blog.domain.entities.Post;
 import com.Kumar.blog.domain.entities.Tag;
+import com.Kumar.blog.domain.entities.User;
 import com.Kumar.blog.repositories.PostRepository;
 import com.Kumar.blog.services.CategoryService;
 import com.Kumar.blog.services.PostService;
@@ -52,5 +53,10 @@ public class PostServiceImpl implements PostService {
         }
 
         return postRepository.findAllByStatus(PostStatus.PUBLISHED);
+    }
+
+    @Override
+    public List<Post> getDraftPosts(User user) {
+        return postRepository.findAllByAuthorAndStatus(user,PostStatus.DRAFT);
     }
 }
