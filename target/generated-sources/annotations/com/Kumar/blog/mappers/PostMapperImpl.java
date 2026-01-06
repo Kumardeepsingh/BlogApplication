@@ -1,11 +1,13 @@
 package com.Kumar.blog.mappers;
 
 import com.Kumar.blog.domain.CreatePostRequest;
+import com.Kumar.blog.domain.UpdatePostRequest;
 import com.Kumar.blog.domain.dtos.AuthorDto;
 import com.Kumar.blog.domain.dtos.CategoryDto;
 import com.Kumar.blog.domain.dtos.CreatePostRequestDto;
 import com.Kumar.blog.domain.dtos.PostDto;
 import com.Kumar.blog.domain.dtos.TagDto;
+import com.Kumar.blog.domain.dtos.UpdatePostRequestDto;
 import com.Kumar.blog.domain.entities.Category;
 import com.Kumar.blog.domain.entities.Post;
 import com.Kumar.blog.domain.entities.Tag;
@@ -18,7 +20,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-11-22T20:02:05-0800",
+    date = "2026-01-06T00:17:36-0800",
     comments = "version: 1.6.3, compiler: javac, environment: Java 23.0.1 (Oracle Corporation)"
 )
 @Component
@@ -63,6 +65,26 @@ public class PostMapperImpl implements PostMapper {
         createPostRequest.status( dto.getStatus() );
 
         return createPostRequest.build();
+    }
+
+    @Override
+    public UpdatePostRequest toUpdatePostRequest(UpdatePostRequestDto dto) {
+        if ( dto == null ) {
+            return null;
+        }
+
+        UpdatePostRequest.UpdatePostRequestBuilder updatePostRequest = UpdatePostRequest.builder();
+
+        updatePostRequest.id( dto.getId() );
+        updatePostRequest.title( dto.getTitle() );
+        updatePostRequest.content( dto.getContent() );
+        updatePostRequest.categoryId( dto.getCategoryId() );
+        Set<UUID> set = dto.getTagIds();
+        if ( set != null ) {
+            updatePostRequest.tagIds( new LinkedHashSet<UUID>( set ) );
+        }
+
+        return updatePostRequest.build();
     }
 
     protected AuthorDto userToAuthorDto(User user) {

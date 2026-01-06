@@ -1,6 +1,7 @@
 package com.Kumar.blog.services;
 
 import com.Kumar.blog.domain.CreatePostRequest;
+import com.Kumar.blog.domain.UpdatePostRequest;
 import com.Kumar.blog.domain.entities.Post;
 import com.Kumar.blog.domain.entities.User;
 
@@ -11,4 +12,5 @@ public interface PostService {
     List<Post> getAllPosts(UUID categoryId, UUID tagId);
     List<Post>getDraftPosts(User user);
     Post createPost(User user, CreatePostRequest createPostRequest);
+    Post updatePost(UUID id, UpdatePostRequest updatePostRequest);
 }
